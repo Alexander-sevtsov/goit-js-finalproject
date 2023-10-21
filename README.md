@@ -1,1 +1,1 @@
-# master-goit-js-finalproject
+# goit-js-finalproject
