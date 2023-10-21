@@ -1,4 +1,5 @@
 import { galleryItems } from './gallery-items.js';
+
 const galleryList = document.querySelector('.gallery');
 
 const markUp = galleryItems
