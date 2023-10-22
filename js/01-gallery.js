@@ -30,21 +30,28 @@ function handleClick(evt) {
 }
 
 function toggleModal(url, description) {
-  const instance = basicLightbox.create(`
+  const instance = basicLightbox.create(
+    `
       <img
         class="gallery__image"
         src=${url}
         alt=${description}
       />>
-  `);
+  `,
+    {
+      onShow: () => {
+        window.addEventListener('keydown', handleKeyboardPress);
+      },
+      onClose: () => {
+        window.removeEventListener('keydown', handleKeyboardPress);
+      },
+    }
+  );
   instance.show();
-
-  window.addEventListener('keydown', handleKeyboardPress);
 
   function handleKeyboardPress(evt) {
     if (evt.code === 'Escape') {
       instance.close();
-      window.removeEventListener('keydown', handleKeyboardPress);
     }
   }
 }

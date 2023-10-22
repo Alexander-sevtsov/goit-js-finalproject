@@ -19,23 +19,10 @@ const markUp = galleryItems
 
 galleryList.insertAdjacentHTML('afterbegin', markUp);
 
-galleryList.addEventListener('click', handleClick);
-
-function handleClick(evt) {
-  evt.preventDefault();
-  const { target } = evt;
-  if (!target.classList.contains('gallery__image')) {
-    return;
-  }
-  toggleModal();
-}
-
-function toggleModal() {
   let galleryModal = new SimpleLightbox('.gallery__link', {
     captions: true,
     captionType: 'attr',
     captionsData: `alt`,
     captionDelay: 250,
   });
-  galleryModal.on('show.simplelightbox');
-}
+
